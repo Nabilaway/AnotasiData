@@ -9,6 +9,7 @@
 <script src="js/cufon-replace.js" type="text/javascript"></script>
 <script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
+<script src="js/Chart.js"></script>
 <!--[if lt IE 7]>
 <script type="text/javascript" src="js/ie_png.js"></script>
 <script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
@@ -83,20 +84,85 @@
               <img src="images/1page-img4.jpg" alt="" />
              
             </li>
+        
+    </script>
             <li class="clear">&nbsp;</li>
           </ul>
         </div>
       </div>
       <div id="footer">
-        <div class="left">
-          <div class="right">
-            <div class="footerlink">
-              <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-              <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
-              <div style="clear:both;"></div>
-            </div>
-          </div>
-        </div>
+        <h2><span>PIE CHART</span></h2>
+            <canvas id="inicanvas"></canvas>
+    <script>
+ 
+        var ctx = document.getElementById("inicanvas").getContext("2d");
+        // tampilan chart
+        var piechart = new Chart(ctx,{type: 'pie',
+          data : {
+        // label nama setiap Value
+        labels:[
+                  'Senang',
+                  'Takut',
+                  'Tegang',
+                  'Terkejut',
+                  'Tertawa',
+                  'Bingung',
+                  'Marah',
+                  'Sedih',
+                  'Melamun',
+                  'Menangis'
+          ],
+        datasets: [{
+          // Jumlah Value yang ditampilkan
+           data:[19,12,8,10,10,11,19,10,5,13],
+ 
+          backgroundColor:[
+                 'rgba(24, 220, 110, 0.5)',
+                 'rgba(111, 80, 10, 0.5)',
+                 'rgba(11, 120, 170, 0.5)',
+                 'rgba(55, 20, 50, 0.5)',
+                 'rgba(99, 230, 90, 0.5)',
+                 'rgb(255, 51, 0)',
+                 'rgb(255, 255, 0)',
+                 'rgb(255, 191, 0)',
+                 'rgb(255, 0, 191)',
+                 'rgb(255, 173, 153)'
+                 ]
+        }],
+        }
+        });
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer",
+      {
+        title:{
+          text: "COLUMN CHART"
+        },
+        data: [
+  
+        {
+          dataPoints: [
+          { x: 1, y: 19, label: "Senang"},
+          { x: 2, y: 12,  label: "Takut" },
+          { x: 3, y: 8,  label: "Tegang"},
+          { x: 4, y: 10,  label: "Terkejut"},
+          { x: 5, y: 10,  label: "Tertawa"},
+          { x: 6, y: 11, label: "Bingung"},
+          { x: 7, y: 19,  label: "Marah"},
+          { x: 8, y: 10,  label: "Sedih"},
+          { x: 9, y: 5, label: "Melamun"},
+          { x: 10, y: 13,  label: "Menangis" },
+          ]
+        }
+        ]
+      });
+  
+      chart.render();
+    }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
       </div>
     </div>
   </div>
